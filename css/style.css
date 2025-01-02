@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0a192f;
+    --secondary-color: #64ffda;
+    --text-color: #ccd6f6;
+    --hover-color: #48b69e;
+    --bg-card: rgba(2, 12, 27, 0.7);
+    --font-main: 'Outfit', sans-serif;
+    --font-code: 'IBM Plex Mono', 'Source Code Pro', monospace;
+    --gradient-1: linear-gradient(120deg, #64ffda 0%, #48b69e 100%);
+    --gradient-2: linear-gradient(to right, rgba(10, 25, 47, 0.95), rgba(2, 12, 27, 0.95));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    line-height: 1.6;
+    position: relative;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: var(--gradient-2);
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out;
+    max-width: 900px;
+    width: 100%;
+}
+
+.greeting {
+    color: var(--secondary-color);
+    font-family: var(--font-code);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards;
+}
+
+.profile-info h1 {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards 0.2s;
+}
+
+.profile-info h2 {
+    font-size: 2rem;
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards 0.4s;
+    color: var(--text-color);
+    font-family: var(--font-code);
+}
+
+.location {
+    color: var(--secondary-color);
+    font-family: var(--font-code);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards 0.6s;
+}
+
+.bio {
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards 0.8s;
+    font-size: 1.3rem;
+    max-width: 700px;
+    color: #8892b0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.skills {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards 1s;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.skill-category {
+    background: rgba(2, 12, 27, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.skill-category h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--secondary-color);
+    font-family: var(--font-code);
+    margin-bottom: 0.8rem;
+}
+
+.skill-category h3 i {
+    color: var(--secondary-color);
+}
+
+.skill-category p {
+    color: #8892b0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards 1.2s;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 140px;
+}
+
+.social-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gradient-1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.social-button:hover::before {
+    width: 100%;
+}
+
+.social-button:hover {
+    color: var(--primary-color);
+    border-color: transparent;
+    transform: translateY(-3px);
+}
+
+.social-button i {
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+
+/* Sertifikalar Sayfası Stilleri */
+.certificates-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    animation: fadeIn 1s ease-out;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-bottom: 3rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.back-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateX(-5px);
+}
+
+.back-button i {
+    margin-right: 0.8rem;
+}
+
+.certificates-container h1 {
+    font-family: var(--font-code);
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #e6f1ff;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.certificate-card {
+    position: relative;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(2, 12, 27, 0.7);
+    border-color: var(--secondary-color);
+}
+
+.certificate-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    display: block;
+}
+
+.certificate-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.8));
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .certificate-info {
+    transform: translateY(0);
+}
+
+.certificate-info h3 {
+    font-family: var(--font-main);
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-info p {
+    color: #8892b0;
+    margin-bottom: 0.8rem;
+}
+
+.verify-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.verify-link:hover {
+    color: #48b69e;
+    text-decoration: underline;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-section {
+        text-align: center;
+    }
+
+    .location {
+        justify-content: center;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .social-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .profile-info h1 {
+        font-size: 3rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .bio {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .skill-category {
+        margin-bottom: 1rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+} 
