@@ -1,159 +1,255 @@
 <!DOCTYPE html>
-<html lang="tr" class="certificates-page">
+<html lang="tr" class="home-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertifikalar</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Furkan İzgi | Sertifikalar</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2821/2821739.png">
+    <style>
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        .cert-stats {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .cert-card {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            border-radius: 1.25rem;
+            background: var(--med-surface);
+            overflow: hidden;
+            transition: transform 220ms, box-shadow 220ms;
+            min-width: 0;
+        }
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+        }
+        .cert-img {
+            aspect-ratio: 4/3;
+            background: #f7f4ed;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+        .cert-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 300ms;
+        }
+        .cert-card:hover .cert-img img {
+            transform: scale(1.03);
+        }
+        .cert-info {
+            padding: 1rem 1.1rem 1.2rem;
+            display: grid;
+            align-content: start;
+            gap: 0.35rem;
+        }
+        .cert-info .cert-meta {
+            font-family: var(--med-mono);
+            font-size: 0.72rem;
+            color: var(--med-sea);
+            font-weight: 600;
+        }
+        .cert-info h3 {
+            margin: 0;
+            font-family: var(--med-serif);
+            font-size: clamp(1.05rem, 2.4vw, 1.2rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--med-ink);
+            overflow-wrap: anywhere;
+        }
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.3rem;
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: var(--med-terra);
+        }
+        .cert-link i { transition: transform 160ms; }
+        .cert-link:hover i { transform: translateX(4px); }
+
+        @media (max-width: 980px) {
+            .certs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 680px) {
+            .cert-stats { grid-template-columns: 1fr; }
+            .certs-grid { grid-template-columns: 1fr; }
+            .cert-info { padding: 0.9rem 1rem 1rem; }
+            .cert-info h3 { font-size: 1.15rem; }
+            .cert-info .cert-meta,
+            .cert-link { font-size: 0.7rem; }
+        }
+        @media (max-width: 420px) {
+            .cert-img { aspect-ratio: 16 / 11; }
+        }
+    </style>
 </head>
-<body class="certificates-page">
-    <div class="certificates-container">
-        <a href="index.html" class="back-button">
-            <i class="fas fa-arrow-left"></i> Ana Sayfaya Dön
+<body class="home-page">
+    <header class="site-header">
+        <a href="index.html" class="brand" aria-label="Furkan İzgi">
+            <strong>Furkan İzgi</strong>
         </a>
-        
-        <h1>Sertifikalar</h1>
-        
-        <div class="certificates-grid">
-            <div class="certificate-card">
-                <img src="assets/cert-1-2024.png" alt="C Programlama Dili">
-                <div class="certificate-info">
-                    <h3>C Programlama Dili</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2024</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> BTK Akademi</p>
-                    <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=zXztayjdyl" class="verify-link" target="_blank">Doğrula</a>
-                </div>
+        <nav class="nav-links" aria-label="Menu">
+            <a href="index.html#experience" data-i18n="nav.exp">Deneyim</a>
+            <a href="index.html#expertise" data-i18n="nav.expertise">Uzmanlık</a>
+            <a href="index.html#projects" data-i18n="nav.projects">Projeler</a>
+            <a href="certificates.html" data-i18n="nav.certs">Sertifikalar</a>
+            <a href="index.html#contact" data-i18n="nav.contact">İletişim</a>
+        </nav>
+        <div id="lang-switcher" class="lang-switcher" aria-label="Language"></div>
+    </header>
+
+    <main id="top" class="shell">
+
+        <section class="cv-section" aria-labelledby="certs-title">
+            <header class="section-head">
+                <span class="kicker" data-i18n="certs.kicker">Sertifika Arşivi</span>
+                <h2 id="certs-title" data-i18n="certs.title">Sertifikalar</h2>
+                <p data-i18n="certs.lead">Gömülü yazılım, C/C++, Python, MATLAB/Simulink ve teknik gelişim sürecimi destekleyen eğitim ve katılım belgeleri.</p>
+            </header>
+
+            <section class="stats-strip cert-stats">
+                <div class="metric"><strong>16</strong><span data-i18n="certs.count">toplam sertifika</span></div>
+                <div class="metric"><strong>8+</strong><span data-i18n="certs.orgs">kurum</span></div>
+            </section>
+
+            <div class="certs-grid">
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-1-2024.png" alt="C Programlama Dili" loading="eager"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">BTK Akademi • 2024</span>
+                        <h3>C Programlama Dili</h3>
+                        <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=zXztayjdyl" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-2-2022.png" alt="Git ve GitHub" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">BTK Akademi • 2022</span>
+                        <h3>Versiyon Kontrolleri: Git ve GitHub</h3>
+                        <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=gK2ho6pKaA" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-3-2024.png" alt="C# Programlama" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">BTK Akademi • 2024</span>
+                        <h3>C# Programlama</h3>
+                        <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=yjahJYljDM" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-4-2022.png" alt="Python Programlama" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">BTK Akademi • 2022</span>
+                        <h3>Sıfırdan İleri Seviye Python Programlama</h3>
+                        <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=zXztanKALn" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-5-2024.png" alt="MATLAB Onramp" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">MATLAB Coding • 2024</span>
+                        <h3>MATLAB Onramp</h3>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-6-2024.png" alt="Simulink Onramp" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">MATLAB Coding • 2024</span>
+                        <h3>Simulink Onramp</h3>
+                        <a href="https://matlabacademy.mathworks.com/progress/share/report.html?id=a8566a6f-fb3e-4bbb-b2e3-bd2ad80b9004" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-7-2023.jpg" alt="TÜBİTAK SAGE Staj" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">TÜBİTAK SAGE • 2023–2024</span>
+                        <h3>TÜBİTAK SAGE Uzun Dönem Staj</h3>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-8-2023.png" alt="Visual C++" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">Udemy • 2023</span>
+                        <h3>Visual C++ Programming</h3>
+                        <a href="https://ude.my/UC-be694a29-755a-4806-ad25-6a90cb6b0ab2" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-9-2023.png" alt="C Programlama Dersleri" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">Udemy • 2023</span>
+                        <h3>C Programlama Dersleri</h3>
+                        <a href="https://ude.my/UC-f49446bb-1a44-434c-90c7-73a6f412b188" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-10-2023.png" alt="C++ Temelleri" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">Udemy • 2023</span>
+                        <h3>C++ Temelleri</h3>
+                        <a href="https://ude.my/UC-2a429532-79cb-4282-9e57-6392e582e631" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-11-2022.png" alt="TEKNOFEST" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">TEKNOFEST • 2022</span>
+                        <h3>TEKNOFEST Efficiency Challenge – Finalist</h3>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-12-2022.png" alt="Atılım Araştırma Günleri" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">Atılım Üniversitesi • 2022</span>
+                        <h3>Atılım Araştırma Günleri</h3>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-13-2024.png" alt="IBM CyberStart" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">IBM SkillsBuild • 2024</span>
+                        <h3>IBM & Kodluyoruz: CyberStart</h3>
+                        <a href="https://verified.sertifier.com/tr/verify/95092955716289" class="cert-link" target="_blank" rel="noopener noreferrer"><span data-i18n="certs.verify">Doğrula</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-14-2022.png" alt="Aselsan" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">Aselsan • 2022</span>
+                        <h3>Aselsan İş Hayatı 101</h3>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-15-2019.png" alt="Python 101" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">Siber Güvenlik Kümelenmesi • 2019</span>
+                        <h3>Python 101</h3>
+                    </div>
+                </article>
+                <article class="cert-card">
+                    <div class="cert-img"><img src="assets/cert-16-2018.png" alt="TÜBİTAK Bilim Fuarları" loading="lazy"></div>
+                    <div class="cert-info">
+                        <span class="cert-meta">TÜBİTAK • 2018</span>
+                        <h3>TÜBİTAK Bilim Fuarları</h3>
+                    </div>
+                </article>
             </div>
-            <div class="certificate-card">
-                <img src="assets/cert-2-2022.png" alt="Versiyon Kontrolleri: Git ve GitHub">
-                <div class="certificate-info">
-                    <h3>Versiyon Kontrolleri: Git ve GitHub</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2022</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> BTK Akademi</p>
-                    <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=gK2ho6pKaA" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-3-2024.png" alt="C# Programlama">
-                <div class="certificate-info">
-                    <h3>C# Programlama</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2024</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> BTK Akademi</p>
-                    <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=yjahJYljDM" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-4-2022.png" alt="Sıfırdan İleri Seviye Python Programlama">
-                <div class="certificate-info">
-                    <h3>Sıfırdan İleri Seviye Python Programlama</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2022</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> BTK Akademi</p>
-                    <a href="https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=zXztanKALn" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-5-2024.png" alt="MATLAB Onramp">
-                <div class="certificate-info">
-                    <h3>MATLAB Onramp</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2024</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> MATLAB Coding</p>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-6-2024.png" alt="Simulink Onramp">
-                <div class="certificate-info">
-                    <h3>Simulink Onramp</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2024</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> MATLAB Coding</p>
-                    <a href="https://matlabacademy.mathworks.com/progress/share/report.html?id=a8566a6f-fb3e-4bbb-b2e3-bd2ad80b9004" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-7-2023.jpg" alt="TÜBİTAK SAGE Uzun Dönem Staj">
-                <div class="certificate-info">
-                    <h3>TÜBİTAK SAGE Uzun Dönem Staj</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2023-2024</p>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-8-2023.png" alt="Visual C++ Programming for Desktop Application Development">
-                <div class="certificate-info">
-                    <h3>Visual C++ Programming for Desktop Application Development</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2023</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Udemy</p>
-                    <a href="https://ude.my/UC-be694a29-755a-4806-ad25-6a90cb6b0ab2" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-9-2023.png" alt="C Programlama Dersleri | C Dilini Baştan Sona Öğrenin">
-                <div class="certificate-info">
-                    <h3>C Programlama Dersleri | C Dilini Baştan Sona Öğrenin</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2023</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Udemy</p>
-                    <a href="https://ude.my/UC-f49446bb-1a44-434c-90c7-73a6f412b188" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-10-2023.png" alt="C++ Temelleri">
-                <div class="certificate-info">
-                    <h3>C++ Temelleri</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2023</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Udemy</p>
-                    <a href="https://ude.my/UC-2a429532-79cb-4282-9e57-6392e582e631" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-11-2022.png" alt="TEKNOFEST Uluslarası Efficiency Challange Elektrikli Araçlar Yarışması - Finalist">
-                <div class="certificate-info">
-                    <h3>TEKNOFEST Uluslarası Efficiency Challange Elektrikli Araçlar Yarışması - Finalist</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2022</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Teknofest</p>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-12-2022.png" alt="Atılım Araştırma Günleri">
-                <div class="certificate-info">
-                    <h3>Atılım Araştırma Günleri</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2022</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Atılım Üniversitesi</p>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-13-2024.png" alt="IBM ve Kodluyoruz: CyberStart">
-                <div class="certificate-info">
-                    <h3>IBM ve Kodluyoruz: CyberStart</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2024</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> IBM SkillsBuild & Kodluyoruz</p>
-                    <a href="https://verified.sertifier.com/tr/verify/95092955716289" class="verify-link" target="_blank">Doğrula</a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-14-2022.png" alt="Aselsan İş Hayatı 101 Programı (İlk Mezunlarından)">
-                <div class="certificate-info">
-                    <h3>Aselsan İş Hayatı 101 Programı (İlk Mezunlarından)</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2022</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Aselsan</p>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-15-2019.png" alt="Siber Güvenlik Kümelenmesi - Python 101">
-                <div class="certificate-info">
-                    <h3>Siber Güvenlik Kümelenmesi - Python 101</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2019</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> Siber Güvenlik Kümelenmesi</p>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <img src="assets/cert-16-2018.png" alt="TÜBİTAK Bilim Fuarları">
-                <div class="certificate-info">
-                    <h3>TÜBİTAK Bilim Fuarları</h3>
-                    <p class="cert-date"><i class="far fa-calendar-alt"></i> 2018</p>
-                    <p class="cert-institution"><i class="fas fa-university"></i> TÜBİTAK</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
+
+    </main>
+
+    <script src="js/i18n.js"></script>
 </body>
-</html> 
+</html>

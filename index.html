@@ -1,96 +1,238 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="home-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furkan İzgi</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Furkan İzgi - Embedded Systems & AI Engineer">
+    <title>Furkan İzgi | Embedded Systems & AI</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2821/2821739.png">
 </head>
-<body>
-    <div class="background-container">
-        <video autoplay muted loop id="background-video" playsinline>
-            <source src="assets/background.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
-    </div>
+<body class="home-page">
+    <header class="site-header">
+        <a href="#top" class="brand" aria-label="Furkan İzgi">
+            <strong>Furkan İzgi</strong>
+        </a>
+        <nav class="nav-links" aria-label="Menu">
+            <a href="#experience" data-i18n="nav.exp">Deneyim</a>
+            <a href="#expertise" data-i18n="nav.expertise">Uzmanlık</a>
+            <a href="#projects" data-i18n="nav.projects">Projeler</a>
+            <a href="certificates.html" data-i18n="nav.certs">Sertifikalar</a>
+            <a href="#contact" data-i18n="nav.contact">İletişim</a>
+        </nav>
+        <div id="lang-switcher" class="lang-switcher" aria-label="Language"></div>
+    </header>
 
-    <main class="container">
-        <div class="profile-section">
-            <div class="profile-info">
-                <h1>Furkan İzgi</h1>
-                <h2>Elektrik-Elektronik Mühendisi</h2>
-                <p class="location"><i class="fas fa-map-marker-alt"></i> Ankara, Türkiye</p>
-                <p class="bio">
-                    Gömülü Sistemler, Gömülü Arayüz Sistemleri ve Yapay Zeka alanında kendini geliştiren bir Elektrik-Elektronik Mühendisi.
-                </p>
-                <div class="skills">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Teknik Beceriler</h3>
-                        <p>C • Python • C++ • Visual C++ • WinForms • MATLAB • Linux • VxWorks • Git • STM32</p>
+    <main id="top" class="shell">
+
+        <section class="hero-full" aria-labelledby="hero-title">
+            <p class="eyebrow">
+                <span class="pulse-dot"></span>
+                <span>Ankara • İzmir</span>
+            </p>
+            <h1 id="hero-title">
+                <span data-i18n="hero.h1.pre">Embedded Systems &</span><br>
+                <em data-i18n="hero.h1.highlight">BSP/kernel</em><span data-i18n="hero.h1.post"> üzerine çalışan bir genç mühendis.</span>
+            </h1>
+            <p class="hero-lead" data-i18n="hero.lead">BSP, Linux Kernel geliştirme, kod analizi ve C/Python tabanlı geliştirme üzerine çalışıyorum. AI araçlarını analiz, hata ayıklama ve üretim sürecini hızlandırmak için bilinçli şekilde kullanıyorum.</p>
+            <div class="hero-actions">
+                <a href="https://github.com/furkan-izgi" class="btn btn-warm" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    <span data-i18n="btn.github">GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/furkan-izgi" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                    <span data-i18n="btn.linkedin">LinkedIn</span>
+                </a>
+                <a href="mailto:frknizgi.work@gmail.com" class="btn btn-ghost">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-i18n="btn.contact">İletişime Geç</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="tech-marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Linux</span><span>BSP</span><span>Linux Kernel</span><span>Bash</span><span>Wireless Technologies</span><span>Python</span><span>Embedded Systems</span><span>AI</span><span>C</span><span>STM32</span><span>Git</span>
+                <span>Linux</span><span>BSP</span><span>Linux Kernel</span><span>Bash</span><span>Wireless Technologies</span><span>Python</span><span>Embedded Systems</span><span>AI</span><span>C</span><span>STM32</span><span>Git</span>
+            </div>
+        </div>
+
+        <section class="stats-strip">
+            <div class="metric"><strong>3+</strong><span data-i18n="metric.drivers">STM32 sürücü projesi</span></div>
+            <div class="metric"><strong>16</strong><span data-i18n="metric.certs">sertifika arşivi</span></div>
+            <div class="metric"><strong>B2</strong><span data-i18n="metric.english">İngilizce seviyesi</span></div>
+        </section>
+
+        <section id="experience" class="cv-section" aria-label="Experience">
+            <header class="section-head">
+                <span class="kicker" data-i18n="exp.kicker">Deneyim</span>
+                <h2 data-i18n="exp.heading">Profesyonel Deneyim</h2>
+            </header>
+            <div class="timeline">
+                <article class="timeline-item current">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Airties</h3>
+                            <span class="timeline-date" data-i18n="exp0.date">Haziran 2025 – Devam Ediyor</span>
+                        </div>
+                        <p class="timeline-role" data-i18n="exp0.role">Software Engineer</p>
+                        <p class="timeline-desc" data-i18n="exp0.desc">Linux, BSP, Linux Kernel, Wireless Networking, Bash, Wireless Technologies, Python, Embedded Systems ve C alanlarında aktif geliştirme.</p>
+                        <div class="tags">
+                            <span>Linux</span><span>BSP</span><span>Linux Kernel</span><span>C</span><span>Bash</span><span>Python</span><span>Embedded Systems</span><span>Wireless Networking</span>
+                        </div>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-microchip"></i> Donanım & Protokoller</h3>
-                        <p>UART • I2C • SPI • NI LabVIEW</p>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>TÜBİTAK SAGE</h3>
+                            <span class="timeline-date">2023 – 2024</span>
+                        </div>
+                        <p class="timeline-role" data-i18n="exp1.role">Uzun Dönem Stajyer — Gömülü Sistemler</p>
+                        <p class="timeline-desc" data-i18n="exp1.desc">Savunma sanayi projelerinde gömülü yazılım geliştirme, test ve doğrulama süreçlerinde aktif görev. VxWorks ve Linux tabanlı sistemlerde uygulama geliştirme.</p>
+                        <div class="tags">
+                            <span>VxWorks</span><span>Linux</span><span>C/C++</span><span>Embedded</span><span>Windows Forms</span>
+                        </div>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-globe"></i> Diller</h3>
-                        <p>İngilizce (B2) • Almanca (A1)</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="education" class="cv-section" aria-label="Education">
+            <header class="section-head">
+                <span class="kicker" data-i18n="edu.kicker">Eğitim</span>
+                <h2 data-i18n="edu.heading">Akademik Geçmiş</h2>
+            </header>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Atılım Üniversitesi</h3>
+                            <span class="timeline-date">2020 – 2025</span>
+                        </div>
+                        <p class="timeline-role" data-i18n="edu1.dept">Elektrik-Elektronik Mühendisliği (Lisans)</p>
+                        <p class="timeline-desc" data-i18n="edu1.desc">Gömülü sistemler ağırlıklı müfredat. TEKNOFEST ve Atılım Araştırma Günleri katılımcısı.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="languages" class="cv-section" aria-label="Languages">
+            <header class="section-head">
+                <span class="kicker" data-i18n="lang.kicker">Diller</span>
+                <h2 data-i18n="lang.heading">Dil Yetkinlikleri</h2>
+            </header>
+            <div class="lang-grid">
+                <div class="lang-card lang-card-main">
+                    <strong>English</strong>
+                    <span>B2 — Upper Intermediate</span>
+                    <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" class="cv-section" aria-label="Expertise">
+            <header class="section-head">
+                <span class="kicker" data-i18n="bento.section">Teknik Uzmanlık</span>
+                <h2 data-i18n="bento.heading">Yetkinlik Alanları</h2>
+            </header>
+            <div class="expertise-grid">
+                <div class="card card-wide">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <span class="kicker" data-i18n="bento4.kicker">01 / Yapay Zeka</span>
+                    <h3 data-i18n="bento4.title">AI destekli mühendislik akışı.</h3>
+                    <p data-i18n="bento4.desc">Yapay zekayı kod okuma, hata ayıklama, dokümantasyon tarama, hızlı prototipleme ve teknik karar alma süreçlerinde verimli şekilde kullanma.</p>
+                    <div class="competence-points">
+                        <span>AI-assisted development</span><span>Prompting</span><span>Debugging</span><span>Documentation</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                    <span class="kicker" data-i18n="bento1.kicker">02 / Embedded Systems</span>
+                    <h3 data-i18n="bento1.title">Linux tabanlı gömülü sistem geliştirme.</h3>
+                    <p data-i18n="bento1.desc">BSP, Linux Kernel, C, Bash ve Python ile sistem seviyesinde geliştirme; donanım-yazılım kesişiminde debug ve entegrasyon pratiği.</p>
+                    <div class="competence-points">
+                        <span>BSP</span><span>Linux Kernel</span><span>Embedded Systems</span><span>C</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+                    <span class="kicker" data-i18n="bento2.kicker">03 / Wireless</span>
+                    <h3 data-i18n="bento2.title">Wireless networking odağı.</h3>
+                    <p data-i18n="bento2.desc">Wireless Networking ve Wireless Technologies alanında Linux tabanlı ürün geliştirme akışlarına uyum.</p>
+                    <div class="competence-points">
+                        <span>Wireless Technologies</span><span>Linux</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-terminal"></i></div>
+                    <span class="kicker" data-i18n="bento3.kicker">04 / Tooling</span>
+                    <h3 data-i18n="bento3.title">Debug ve otomasyon refleksi.</h3>
+                    <p data-i18n="bento3.desc">Bash, Python, Git ve terminal odaklı iş akışlarıyla tekrar eden problemleri daha hızlı izole etme ve çözme.</p>
+                    <div class="competence-points">
+                        <span>Bash</span><span>Python</span><span>Git</span><span>CLI</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="social-links">
-            <a href="https://linkedin.com/in/furkan-izgi" class="social-button linkedin" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/furkan-izgi" class="social-button github" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="certificates.html" class="social-button certificates">
-                <i class="fas fa-certificate"></i> Sertifikalar
-            </a>
-            <a href="https://medium.com/@furkan-izgi" class="social-button medium" target="_blank">
-                <i class="fab fa-medium"></i> Medium
-            </a>
-            <a href="mailto:frknizgi.work@gmail.com" class="social-button email">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
+        <section id="projects" class="projects" aria-labelledby="proj-title">
+            <header class="section-head">
+                <span class="kicker" data-i18n="proj.kicker">Seçme Projeler</span>
+                <h2 id="proj-title" data-i18n="proj.heading">Proje vitrini</h2>
+                <p data-i18n="proj.sub">Projelerin kaynak kodlarını bağlantıya tıklayarak inceleyebilirsiniz.</p>
+            </header>
+            <div class="proj-grid">
+                <article class="proj-card">
+                    <div class="proj-meta"><span>EMBEDDED DRIVER</span><i class="fas fa-compass"></i></div>
+                    <h3 data-i18n="proj1.title">STM32 MPU6050 Driver</h3>
+                    <p data-i18n="proj1.desc">6 eksenli ivmeölçer ve jiroskop sensörü için STM32 odaklı sürücü.</p>
+                    <div class="tags"><span>I2C</span><span>C</span></div>
+                    <a href="https://github.com/furkan-izgi/MPU6050_STM32_Driver" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">İncele</span><i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="proj-card">
+                    <div class="proj-meta"><span>EMBEDDED DRIVER</span><i class="fas fa-gauge-high"></i></div>
+                    <h3 data-i18n="proj2.title">STM32 BMP280 Driver</h3>
+                    <p data-i18n="proj2.desc">Dijital basınç sensörü için gömülü veri okuma ve yapılandırma katmanı.</p>
+                    <div class="tags"><span>I2C/SPI</span><span>C</span></div>
+                    <a href="https://github.com/furkan-izgi/BMP280_STM32_Driver" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">İncele</span><i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="proj-card">
+                    <div class="proj-meta"><span>EMBEDDED DRIVER</span><i class="fas fa-sun"></i></div>
+                    <h3 data-i18n="proj3.title">STM32 BH1750 Driver</h3>
+                    <p data-i18n="proj3.desc">Ortam ışığı sensörü için okunabilir, modüler ve taşınabilir sürücü yapısı.</p>
+                    <div class="tags"><span>HAL</span><span>C</span></div>
+                    <a href="https://github.com/furkan-izgi/BH1750_STM32_Driver" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">İncele</span><i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="proj-card">
+                    <div class="proj-meta"><span>ALGORITHM LAB</span><i class="fas fa-code"></i></div>
+                    <h3 data-i18n="proj4.title">C Examples</h3>
+                    <p data-i18n="proj4.desc">C programlama pratiğini güçlendiren örnek problem çözümleri.</p>
+                    <div class="tags"><span>C</span></div>
+                    <a href="https://github.com/furkan-izgi/C-Examples" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">İncele</span><i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </section>
 
-        <div class="projects-section">
-            <h2><i class="fas fa-code-branch"></i> Projeler</h2>
-            <div class="project-card">
-                <h3>MPU6050 Driver STM32</h3>
-                <p>STM32 mikrodenetleyiciler için MPU6050 6 Eksenli İvmeölçer ve Jiroskop Sensörü Sürücüsü</p>
-                <a href="https://github.com/furkan-izgi/MPU6050_STM32_Driver" class="social-button github" target="_blank">
-                    <i class="fab fa-github"></i> Projeyi İncele
-                </a>
+        <section id="contact" class="contact" aria-label="Contact">
+            <div>
+                <span class="kicker" data-i18n="contact.kicker">İş Görüşmeleri</span>
+                <h2 data-i18n="contact.heading">Gömülü yazılım rolleri ve teknik görüşmeler için ulaşabilirsiniz.</h2>
+                <p data-i18n="contact.sub">Software Engineer pozisyonları, Embedded Systems/BSP/kernel geliştirme odaklı işler veya proje görüşmeleri için mail ya da LinkedIn üzerinden iletişime geçebilirsiniz.</p>
             </div>
-            <div class="project-card">
-                <h3>BMP280 Driver STM32</h3>
-                <p>STM32 mikrodenetleyiciler için BMP280 Dijital Basınç Sensörü Sürücüsü</p>
-                <a href="https://github.com/furkan-izgi/BMP280_STM32_Driver" class="social-button github" target="_blank">
-                    <i class="fab fa-github"></i> Projeyi İncele
-                </a>
+            <div class="contact-actions">
+                <a id="cal-link" href="#" class="btn btn-warm" target="_blank" rel="noopener noreferrer"><i class="fas fa-calendar-check"></i><span data-i18n="btn.mail">Görüşme Planla</span></a>
+                <a href="https://linkedin.com/in/furkan-izgi" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i><span data-i18n="btn.linkedin">LinkedIn</span></a>
+                <a href="certificates.html" class="btn btn-ghost"><i class="fas fa-certificate"></i><span data-i18n="btn.certs">Sertifikalar</span></a>
             </div>
-            <div class="project-card">
-                <h3>BH1750 Driver STM32</h3>
-                <p>STM32 mikrodenetleyiciler için BH1750 Ortam Işığı Sensörü Sürücüsü</p>
-                <a href="https://github.com/furkan-izgi/BH1750_STM32_Driver" class="social-button github" target="_blank">
-                    <i class="fab fa-github"></i> Projeyi İncele
-                </a>
-            </div>
-            <div class="project-card">
-                <h3>C Examples</h3>
-                <p>Rastgele seçilmiş C programlama örnek çözümleri</p>
-                <a href="https://github.com/furkan-izgi/C-Examples" class="social-button github" target="_blank">
-                    <i class="fab fa-github"></i> Projeyi İncele
-                </a>
-            </div>
-        </div>
+        </section>
     </main>
+
+    <script src="js/i18n.js"></script>
 </body>
-</html> 
+</html>
