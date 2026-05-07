@@ -34,7 +34,7 @@ const dict = {
   'ats.cat1':        { tr:'Diller',               en:'Languages' },
   'ats.cat1v':       { tr:'C, C++, Python, Bash', en:'C, C++, Python, Bash' },
   'ats.cat2':        { tr:'Geliştirici Araçları', en:'Developer Tools' },
-  'ats.cat2v':       { tr:'Git, GitHub, GDB, Make, CMake, VS Code, ', en:'Git, GitHub, GDB, Make, CMake, VS Code' },
+  'ats.cat2v':       { tr:'Git, GitHub, GDB, Make, CMake, VS Code', en:'Git, GitHub, GDB, Make, CMake, VS Code' },
   'ats.cat3':        { tr:'Teknolojiler',         en:'Technologies' },
   'ats.cat3v':       { tr:'Embedded Linux, BSP, Linux Kernel, UART/RS232, I2C, SPI, STM32', en:'Embedded Linux, BSP, Linux Kernel, UART/RS232, I2C, SPI, STM32' },
   'ats.cat4':        { tr:'Alanlar',              en:'Domains' },
@@ -169,16 +169,6 @@ function applyLang(lang) {
       en: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Meeting&add=frknizgi.work@gmail.com&details=Hi%20Furkan%2C%20I%20would%20like%20to%20schedule%20a%20call%20with%20you.'
     };
     calLink.href = calUrls[lang] || calUrls.tr;
-  }
-
-  /* update CV download link */
-  const cvLink = document.getElementById('cv-link');
-  if (cvLink) {
-    const cvUrls = {
-      tr: 'assets/Furkan_Izgi_CV_TR.pdf',
-      en: 'assets/Furkan_Izgi_CV_EN.pdf'
-    };
-    cvLink.href = cvUrls[lang] || cvUrls.tr;
   }
 
   /* mark active pill */
