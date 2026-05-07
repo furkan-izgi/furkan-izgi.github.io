@@ -14,7 +14,8 @@
             gap: 1rem;
         }
         .cert-stats {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 1.5rem;
         }
         .cert-card {
             display: grid;
@@ -101,7 +102,7 @@
         </a>
         <nav class="nav-links" aria-label="Menu">
             <a href="index.html#experience" data-i18n="nav.exp">Deneyim</a>
-            <a href="index.html#expertise" data-i18n="nav.expertise">Uzmanlık</a>
+            <a href="index.html#ats" data-i18n="nav.ats">Teknik Özet</a>
             <a href="index.html#projects" data-i18n="nav.projects">Projeler</a>
             <a href="certificates.html" data-i18n="nav.certs">Sertifikalar</a>
             <a href="index.html#contact" data-i18n="nav.contact">İletişim</a>
@@ -118,9 +119,9 @@
                 <p data-i18n="certs.lead">Gömülü yazılım, C/C++, Python, MATLAB/Simulink ve teknik gelişim sürecimi destekleyen eğitim ve katılım belgeleri.</p>
             </header>
 
-            <section class="stats-strip cert-stats">
-                <div class="metric"><strong>16</strong><span data-i18n="certs.count">toplam sertifika</span></div>
-                <div class="metric"><strong>8+</strong><span data-i18n="certs.orgs">kurum</span></div>
+            <section class="impact-grid cert-stats">
+                <div class="impact-card"><strong>16</strong><span data-i18n="certs.count">toplam sertifika</span></div>
+                <div class="impact-card"><strong>8+</strong><span data-i18n="certs.orgs">kurum</span></div>
             </section>
 
             <div class="certs-grid">
