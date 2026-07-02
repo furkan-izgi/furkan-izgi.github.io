@@ -35,7 +35,30 @@ body.home-page {
     color: var(--med-ink);
     font-family: var(--med-font);
     letter-spacing: -0.01em;
+    background-color: var(--med-cream);
+    background-image: radial-gradient(rgba(242,231,213,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
     background: var(--med-cream);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(209,132,88,0.3);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(209,132,88,0.5);
+}
+
+/* Custom Selection */
+::selection {
+    background: rgba(107,166,184,0.3);
+    color: var(--med-ink);
 }
 
 .home-page a { color: inherit; text-decoration: none; }
@@ -83,13 +106,35 @@ body.home-page {
 
 /* hero — centered recruiter pitch */
 .hero-full {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 3rem 0 2rem;
     gap: 0;
+    z-index: 1;
 }
+
+/* Ambient Glow */
+.ambient-glow {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(209,132,88,0.12) 0%, rgba(107,166,184,0.05) 40%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    animation: glowPulse 8s infinite alternate;
+}
+@keyframes glowPulse {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+    100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+/* ambient glow logic keeps running, just removed avatar styles */
 
 .eyebrow {
     display: inline-flex; align-items: center; gap: 0.6rem;
@@ -172,6 +217,13 @@ body.home-page {
     border-radius: 0.85rem;
     background: var(--med-surface);
     backdrop-filter: blur(12px);
+    transition: transform 200ms, border-color 200ms, background 200ms;
+}
+
+.ats-row:hover {
+    transform: translateX(4px);
+    border-color: rgba(209,132,88,0.25);
+    background: rgba(30,36,48,0.74);
 }
 
 .ats-cat {
