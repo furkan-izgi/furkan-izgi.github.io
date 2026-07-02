@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Furkan İzgi — Embedded Software Engineer focused on Linux, BSP, Kernel, C, Python, Wireless Networking. TÜBİTAK SAGE defense industry experience, Airties software engineering.">
-    <title>Furkan İzgi | Embedded Software Engineer</title>
+    <meta name="description" content="Furkan İzgi — Electrical & Electronics Engineer focused on Linux, BSP, Kernel, C, Python, Hardware-Software Integration. TÜBİTAK SAGE defense industry experience, Airties software engineering.">
+    <title>Furkan İzgi | Electrical & Electronics Engineer</title>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2821/2821739.png">
@@ -165,44 +165,43 @@
             </header>
             <div class="proj-grid">
                 <article class="proj-card">
-                    <div class="proj-meta"><span>EMBEDDED DRIVER</span><i class="fas fa-compass"></i></div>
-                    <h3 data-i18n="proj1.title">STM32 MPU6050 Driver</h3>
+                    <div class="proj-meta"><span data-i18n="proj.meta1">TEST AUTOMATION</span><i class="fas fa-robot"></i></div>
+                    <h3 data-i18n="proj1.title">AirTest</h3>
                     <div class="proj-detail">
-                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj1.problem">6 eksenli IMU sensör verisinin güvenilir biçimde okunması.</span></p>
-                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj1.solution">Register seviyesinde I2C iletişimi kuran bare-metal C sürücüsü.</span></p>
+                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj1.problem">Ağ extender cihazlarında sahadaki hataların analizi ve otomasyonu.</span></p>
+                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj1.solution">Hataları tekrarlamak ve senaryo testleri yürütmek için geliştirilen Python tabanlı otomasyon yazılımı.</span></p>
                     </div>
-                    <div class="tags"><span>I2C</span><span>C</span><span>Bare-metal</span></div>
-                    <a href="https://github.com/furkan-izgi/MPU6050_STM32_Driver" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
+                    <div class="tags"><span>Python</span><span>Web</span><span>CLI</span><span>Automation</span></div>
                 </article>
                 <article class="proj-card">
-                    <div class="proj-meta"><span>EMBEDDED DRIVER</span><i class="fas fa-gauge-high"></i></div>
-                    <h3 data-i18n="proj2.title">STM32 BMP280 Driver</h3>
+                    <div class="proj-meta"><span data-i18n="proj.meta2">EMBEDDED DRIVERS</span><i class="fas fa-microchip"></i></div>
+                    <h3 data-i18n="proj2.title">STM32 HAL Sensör Sürücüleri</h3>
                     <div class="proj-detail">
-                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj2.problem">Dijital basınç sensöründen hassas çevresel veri alımı.</span></p>
-                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj2.solution">I2C/SPI üzerinden register seviyesinde okuma ve yapılandırma katmanı.</span></p>
+                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj2.problem">IMU, Basınç ve Ortam Işığı sensörlerinin modüler biçimde okunması.</span></p>
+                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj2.solution">I2C/SPI üzerinden başlatma, veri okuma ve kalibrasyon yapan C tabanlı sürücü kütüphaneleri.</span></p>
                     </div>
-                    <div class="tags"><span>I2C/SPI</span><span>C</span><span>Register-level</span></div>
-                    <a href="https://github.com/furkan-izgi/BMP280_STM32_Driver" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
+                    <div class="tags"><span>C</span><span>STM32</span><span>I2C/SPI</span><span>HAL</span></div>
+                    <a href="https://github.com/furkan-izgi?tab=repositories&q=STM32" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="proj-card">
-                    <div class="proj-meta"><span>EMBEDDED DRIVER</span><i class="fas fa-sun"></i></div>
-                    <h3 data-i18n="proj3.title">STM32 BH1750 Driver</h3>
+                    <div class="proj-meta"><span data-i18n="proj.meta3">DATA ACQUISITION</span><i class="fas fa-chart-bar"></i></div>
+                    <h3 data-i18n="proj3.title">LabView Sensör Uygulaması</h3>
                     <div class="proj-detail">
-                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj3.problem">Ortam ışığı sensörü için modüler ve taşınabilir sürücü ihtiyacı.</span></p>
-                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj3.solution">HAL tabanlı, okunabilir ve farklı platformlara kolayca taşınabilir sürücü.</span></p>
+                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj3.problem">Sensör verilerinin gerçek zamanlı işlenmesi ve raporlanması.</span></p>
+                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj3.solution">HC-SR04 verilerini görselleştirip Excel'e aktaran arayüz uygulaması.</span></p>
                     </div>
-                    <div class="tags"><span>HAL</span><span>C</span><span>Portable</span></div>
-                    <a href="https://github.com/furkan-izgi/BH1750_STM32_Driver" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
+                    <div class="tags"><span>LabView</span><span>Sensor</span><span>UI</span></div>
+                    <a href="https://github.com/furkan-izgi/NI-LabView-Examples" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="proj-card">
-                    <div class="proj-meta"><span>ALGORITHM LAB</span><i class="fas fa-code"></i></div>
-                    <h3 data-i18n="proj4.title">C Examples</h3>
+                    <div class="proj-meta"><span data-i18n="proj.meta4">COMPUTER VISION</span><i class="fas fa-eye"></i></div>
+                    <h3 data-i18n="proj4.title">OpenCV Çalışmaları</h3>
                     <div class="proj-detail">
-                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj4.problem">Temel algoritma ve veri yapılarında C dili pratiğini güçlendirme.</span></p>
-                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj4.solution">Sıralama, arama ve veri yapıları üzerine C dilinde örnek çözümler.</span></p>
+                        <p class="proj-problem"><span data-i18n="proj.problemLabel">Problem:</span> <span data-i18n="proj4.problem">Görüntü işleme ve analiz süreçlerinde pratik.</span></p>
+                        <p class="proj-solution"><span data-i18n="proj.solutionLabel">Çözüm:</span> <span data-i18n="proj4.solution">Python ve OpenCV kütüphanesi ile geliştirilmiş görüntü işleme projeleri.</span></p>
                     </div>
-                    <div class="tags"><span>C</span><span>Algorithms</span></div>
-                    <a href="https://github.com/furkan-izgi/C-Examples" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
+                    <div class="tags"><span>Python</span><span>OpenCV</span><span>Image Processing</span></div>
+                    <a href="https://github.com/furkan-izgi/OpenCV-python-calismalari" class="proj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="proj.view">Kaynak Kodu İncele</span><i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
         </section>
@@ -222,7 +221,7 @@
                             <span class="timeline-date">2020 – 2025</span>
                         </div>
                         <p class="timeline-role" data-i18n="edu1.dept">Elektrik-Elektronik Mühendisliği (Lisans)</p>
-                        <p class="timeline-desc" data-i18n="edu1.desc">Gömülü sistemler ağırlıklı müfredat. TEKNOFEST Efficiency Challenge finalisti ve Atılım Araştırma Günleri katılımcısı.</p>
+                        <p class="timeline-desc" data-i18n="edu1.desc"><strong>GNO:</strong> 3.37 / 4.00 (Tam Burslu) <br> Gömülü sistemler ağırlıklı müfredat. TEKNOFEST Efficiency Challenge finalisti ve 2 Lisans Araştırma Projesi.</p>
                     </div>
                 </article>
             </div>
